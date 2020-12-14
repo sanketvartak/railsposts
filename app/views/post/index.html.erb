@@ -1,0 +1,19 @@
+<div class="bs-example" data-example-id="default-media"> 
+<% @posts.each do |post| %>
+
+<div class="media"> 
+<div class="media-left"> 
+<%= link_to "Read More", post_path(post), :class => 'btn btn-default'%>
+</div> 
+<div class="media-body"> 
+<h4 class="media-heading"><%= post.title %></h4> 
+<p><%= time_ago_in_words post.created_at %> ago</p>
+<p>Created by : <%= post.user_id %> </p>
+<p><%= post.body %></p>
+ </div> 
+ </div>  
+ <% end %>
+</div>  
+<% if @posts.empty? %>
+        <div class="alert alert-info"> There are no posts yet</div>
+    <% end %>
